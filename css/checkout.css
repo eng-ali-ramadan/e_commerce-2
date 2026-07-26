@@ -1,0 +1,230 @@
+/* ==========================================================================
+   1. إعدادات عامة (General Styles)
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f7f6f2; /* لون البيج الفاتح الموحد للمشروع */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    padding: 30px 20px;
+}
+
+/* ==========================================================================
+   2. الحاوية الرئيسية (Main Container)
+   ========================================================================== */
+.checkout-container {
+    background-color: #fdfdfb;
+    width: 100%;
+    max-width: 750px; /* نفس عرض صفحة التواصل والتفاصيل السابقة لتناسق الموقع */
+    height: auto;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid #eee;
+}
+
+/* عنوان الصفحة الرئيسي */
+.main-title {
+    text-align: center;
+    font-size: 24px;
+    color: #1a1a1a;
+    font-weight: 700;
+    margin-bottom: 35px;
+    width: 100%;
+}
+
+/* توزيع الأعمدة بشكل مرن */
+.checkout-content {
+    display: flex;
+    gap: 40px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+.payment-summary-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.shipping-column {
+    flex: 1.2; /* مساحة أكبر قليلاً لحقول الشحن */
+}
+
+.section-subtitle {
+    font-size: 15px;
+    color: #222;
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+
+/* ==========================================================================
+   3. خيارات طرق الدفع (Payment Methods)
+   ========================================================================== */
+.payment-methods {
+    width: 100%;
+}
+
+.method-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fcfbfa;
+    border: 1px solid #e8e7e3;
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* الخيار النشط أو المختار (مثل Cash on Delivery في الصورة image_f84200.png) */
+.method-option.active {
+    background-color: #f3f2ed;
+    border-color: #007aff ; /* تمييز باللون الزيتي */
+}
+
+.check-icon {
+    font-size: 12px;
+    color: #007aff ;
+}
+
+.method-text {
+    flex-grow: 1;
+    font-size: 13px;
+    color: #333;
+    padding: 0 15px;
+}
+
+.method-icon {
+    font-size: 15px;
+    color: #666;
+}
+
+/* ==========================================================================
+   4. ملخص الطلب (Order Summary)
+   ========================================================================== */
+.order-summary {
+    background-color: #f6f4ee; /* المربع الملون في الخلفية كما يظهر بالصورة */
+    padding: 20px;
+    border-radius: 12px;
+    width: 100%;
+}
+
+.summary-title {
+    font-size: 14px;
+    color: #222;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.total-row {
+    margin-top: 15px;
+    padding-top: 12px;
+    border-top: 1px solid #e0dfdb;
+    font-size: 14px;
+    color: #1a1a1a;
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   5. فورمة بيانات الشحن (Shipping Form)
+   ========================================================================== */
+.shipping-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.form-group {
+    width: 100%;
+}
+
+.shipping-form input {
+    width: 100%;
+    padding: 12px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #e0dfdb; /* تصميم الخطوط المفتوحة المماثل تماماً للصورة */
+    font-size: 13px;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.shipping-form input:focus {
+    border-bottom-color: #007aff ;
+}
+
+/* ==========================================================================
+   6. زر تأكيد الطلب (Confirm Button)
+   ========================================================================== */
+.confirm-btn {
+    width: 100%;
+    background-color: #007aff ; /* اللون الزيتي الداكن المميز في الهوية */
+    color: #ffffff;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.confirm-btn:hover {
+    background-color: #007aff ;
+}
+
+/* ==========================================================================
+   7. شاشات الميديا المتجاوبة (Responsive Media Queries)
+   ========================================================================== */
+
+/* أجهزة التابلت والشاشات المتوسطة (أقل من 768px) */
+@media (max-width: 768px) {
+    .checkout-container {
+        padding: 25px;
+    }
+    
+    .checkout-content {
+        gap: 25px;
+    }
+}
+
+/* أجهزة الموبايل والشاشات الصغيرة (أقل من 600px) */
+@media (max-width: 600px) {
+    .checkout-content {
+        flex-direction: column-reverse; /* ترتيب مناسب للموبايل: بيانات الشحن تظهر أولاً ثم طرق الدفع والملخص */
+        gap: 35px;
+    }
+    
+    .shipping-column, 
+    .payment-summary-column {
+        width: 100%;
+    }
+    
+    .main-title {
+        font-size: 21px;
+        margin-bottom: 25px;
+    }
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - Tech Nova</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+   
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="./css/form.css">
+  <link rel="stylesheet" href="./css/all.css">
+</head>
+<body>
+   
+  <header>
+    <img src="./image/nav/loogo.png" width="300" alt="Logo">
+  </header>
+
+  <div class="reg">
+    <div class="conttener">
+      <div class="sec_logo">
+        <h1 class="welcome-title">Welcome Back!</h1>
+        <h3 class="welcome-subtitle">Sign UP to access your unique experience</h3>
+        <div class="d-img"></div>
+      </div>
+
+      <section class="sec-form">
+        <div class="w-20 h-20 bg-gradient-to-tr from-sky-400 to-sky-300 rounded-3xl flex items-center justify-center glow-effect rotate-12 hover:rotate-0 transition-transform duration-500 cursor-pointer mx-auto">
+          <i class="fa-solid fa-fire text-white text-4xl -rotate-12 hover:rotate-0 transition-transform duration-500"></i>
+        </div>
+        
+        <h1 class="text-2xl font-black text-sky-900 tracking-widest mt-4 mb-1">Register</h1>
+        <p class="text-xs text-sky-700/60 font-medium mb-5">Create your account and start exploring.</p>
+
+        <div id="messageBox" class="message" style="display: none;"></div>
+
+        <form>
+          <input type="text" placeholder="Enter username" id="username">
+          <i class="fa-solid fa-user inn"></i>
+          
+          <input type="email" placeholder="Enter email" id="email">
+          <i class="fa-solid fa-at inn"></i>
+          
+          <input type="password" placeholder="Enter password" id="password">
+          <i class="fa fa-eye-slash inn" id="togglePassword"></i>
+
+          <input type="password" placeholder="Confirm password" id="rePassword">
+          <i class="fa-solid fa-lock inn"></i>
+          
+          <input type="submit" value="Sign UP" id="Sign_UP">
+          <p class="mt-4 text-xs text-sky-700/60">Already have an account? <a class="accn font-bold text-sky-500" href="login.html">Login</a></p>
+        </form>
+      </section>
+    </div>
+  </div>
+   
+  <script src="./js/form.js"></script>
+
+</body>
+</html>

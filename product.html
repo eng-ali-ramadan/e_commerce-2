@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products Dashboard</title>
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3081/3081840.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/proddash.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>Tech Store</h2>
+    <ul>
+        <li><i class="fa fa-home"></i><a href="./Dashboard.html">Dashboard</a></li>
+        <li><i class="fa-solid fa-border-all"></i><a href="./Categories.html">Categories</a></li>
+        <li><i class="fa-solid fa-boxes-stacked"></i><a href="./product.html">Products</a></li>
+        <li><i class="fa fa-shopping-cart"></i> Orders</li>
+        <li><i class="fa fa-users"></i><a href="./html/createadmin.html">Create Admin/user</a></li>
+    </ul>
+</div>
+
+<div class="main">
+    <!-- FORM -->
+    <div class="form-card">
+        <h3 id="formTitle">➕ Add Product</h3>
+        <form id="productForm">
+            <input type="text" id="title" placeholder="Title" required>
+            <input type="text" id="description" placeholder="Description" required>
+            <input type="text" id="slug" placeholder="Slug" >
+            
+            <select id="category" required>
+                <option value="" disabled selected>Select Category</option>
+            </select>
+
+            <input type="number" id="quantity" placeholder="Quantity" required>
+            <input type="number" id="price" placeholder="Price" required>
+
+            <!-- حقل الألوان الجديد -->
+            <!-- <input type="text" id="colorInput" placeholder="Colors (e.g. Red, Blue, Black)"> -->
+
+            <input type="file" id="imageCover">
+            <input type="file" id="images" multiple>
+
+            <button type="submit" class="btn-submit">💾 Save</button>
+        </form>
+        <div id="formResult"></div>
+    </div>
+
+    <!-- TABLE -->
+    <div class="table-card">
+        <h3>📦 All Products</h3>
+        <div id="loading">Loading...</div>
+        <table id="productsTable" style="display:none;">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Category</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="productsBody"></tbody>
+        </table>
+    </div>
+</div>
+
+<script src="./js/dash_product.js"></script>
+</body>
+</html>

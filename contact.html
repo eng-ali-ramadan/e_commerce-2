@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3081/3081840.png">
+    <link rel="stylesheet" href="./css/all.min.css">
+<link rel="stylesheet" href="./css/bootstrap.min.css">
+
+    <style>
+        .bg-orange- {
+    background-color: #0b76be;
+}
+
+.feature-icon-box {
+    width: 45px;
+    height: 45px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+
+.custom-input {
+    background-color:#FFFFFF !important;
+    border: 1px solid #eee !important;
+    padding: 15px 15px !important;
+    border-radius: 15px !important;
+}
+
+.custom-input:focus {
+    box-shadow: none !important;
+}
+.btn-outline-custom {
+    border: 2px solid #eee !important;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+.btn-check:checked + .btn-outline-custom {
+    border-color: var(--brand-orange) !important;
+    background-color: rgba(236, 65, 8, 0.05);
+}
+.btn-check:checked + .btn-outline-custom:hover {
+border-color: #848fa4 !important;
+}
+
+.btn-submit-gradient {
+    background: linear-gradient(to right,#0c62e3,#3296ee) !important;
+    border: none !important;
+    transition: all 0.3s ease;
+}
+
+.btn-submit-gradient:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 20px rgba(187, 91, 56, 0.2) !important;
+}
+
+.form-check-input:checked {
+    background-color: var(--brand-orange) !important;
+    border-color: var(--brand-orange) !important;
+}
+
+
+@media (max-width: 991px) {
+    .bg-orange-gradient {
+        border-radius: 0 0 30px 30px;
+    }
+}
+.text-orangi{
+    color: #0c74d5 !important;
+}
+.contact-section{
+    background-color: #f5f7fe !important;
+}
+
+
+
+ 
+    </style>
+</head>
+<body>
+    <section class="contact-section p-5"id="Contact">
+            <div class="text-center mb-5">
+            <span class="badge rounded-pill bg-soft-orange text-orange px-3 py-2 mb-3">
+                <i class="fa-solid fa-rocket me-1"></i> Let's Start Your Journey
+            </span>
+            <h2 class="fw-bold display-5 mb-3 tixt-orange">Ready to <br> <span class="text-orangi">Transform?</span></h2>
+            <p class="text-muted mx-auto" style="max-width: 600px;">
+                Find answers to common questions about our services, process, and how we can help transform your business.
+            </p>
+        </div>
+    <div class="container-lg shadow-lg rounded-5 overflow-hidden bg-white p-0">
+        <div class="row g-0">
+            
+            
+            <div class="col-lg-8 p-4 p-md-5">
+                <h3 class="fw-bold tixt-orange mb-3">Get Your Free Consultation</h3>
+                <p class="text-muted mb-4">Fill out the form and we'll get back to you within 24 hours with a personalized proposal.</p>
+                
+                <div class="row g-3">
+                
+                    <div class="col-md-6 text-start">
+                        <label class="form-label fw-bold small">First Name *</label>
+                        <input type="text" class="form-control custom-input" placeholder="John" id="firstName" oninput="validateForm(this)">
+                <p class="alert-danger py-2 mt-1 text-danger d-none">Name should contain only letters and spaces (2-50 characters)</p>
+
+                    </div>
+                    <div class="col-md-6 text-start">
+                        <label class="form-label fw-bold small">Last Name *</label>
+                        <input type="text" class="form-control custom-input" placeholder="Doe"id="lastName" oninput="validateForm(this)">
+                <p class="alert-danger py-2 mt-1 text-danger d-none">Name should contain only letters and spaces (2-50 characters)</p>
+
+                    </div>
+
+                    
+                    <div class="col-md-6 text-start">
+                        <label class="form-label fw-bold small">Email Address *</label>
+                        <input type="email" class="form-control custom-input" placeholder="john@company.com" id="emailAddress" oninput="validateForm(this)">
+                <p class="alert-danger py-2 mt-1 text-danger d-none">Please enter a valid email address</p>
+
+                    </div>
+                     <div class="col-md-6 text-start">
+                        <label class="form-label fw-bold small">phoneNumper *</label>
+                        <input type="tel" class="form-control custom-input" placeholder="01067743503" id="phoneNumber" oninput="validateForm(this)">
+                <p class="alert-danger py-2 mt-1 text-danger d-none">Please enter a valid Egyptian phone number</p>
+
+                    </div>
+                    <div class="col-12 text-start">
+                        <label class="form-label fw-bold small">Company</label>
+                        <input type="text" class="form-control custom-input" placeholder="Your Company Name">
+                    </div>
+
+            
+                    <div class="col-12 text-start">
+                        <label class="form-label fw-bold small">Primary Interest</label>
+                        <select class="form-select custom-input">
+                            <option selected>Choose your focus area</option>
+                            <option>Web Development</option>
+                            <option>Mobile Apps</option>
+                            <option>UI/UX Design</option>
+                        </select>
+                    </div>
+
+                    
+                    <div class="col-12 text-start mt-4">
+                        <label class="form-label fw-bold small mb-3">Project Budget Range</label>
+                        <div class="row g-2">
+                            <div class="col-md-4">
+                                <input type="radio" class="btn-check" name="budget" id="budget1">
+                                <label class="btn btn-outline-custom w-100 p-3 rounded-3" for="budget1">
+                                    <span class="d-block fw-bold">$25K - $50K</span>
+                                    <small class="text-muted">Growth</small>
+                                </label>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="radio" class="btn-check" name="budget" id="budget2">
+                                <label class="btn btn-outline-custom w-100 p-3 rounded-3" for="budget2">
+                                    <span class="d-block fw-bold">$50K - $100K</span>
+                                    <small class="text-muted">Scale</small>
+                                </label>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="radio" class="btn-check" name="budget" id="budget3">
+                                <label class="btn btn-outline-custom w-100 p-3 rounded-3" for="budget3">
+                                    <span class="d-block fw-bold">$100K+</span>
+                                    <small class="text-muted">Enterprise</small>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="col-12 text-start mt-4">
+                        <label class="form-label fw-bold small">Tell us about your project</label>
+                        <textarea class="form-control custom-input" rows="4" placeholder="Describe your project goals, challenges..."></textarea>
+                    </div>
+
+                
+                    <div class="col-12 text-start mt-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="privacyCheck">
+                            <label class="form-check-label small text-muted" for="privacyCheck">
+                                I agree to receive communications and accept the <a href="#" class="text-orange text-decoration-none">Privacy Policy</a>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-12 mt-4">
+                        <button  class="btn btn-submit-gradient w-100 py-3 fw-bold text-white rounded-3 shadow-sm trni "  onclick="addContact()">
+                            Get My Free Consultation <i class="fa-solid fa-arrow-right ms-2 transformi"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        
+            <div class="col-lg-4 bg-orange- p-4 p-md-5 text-white d-flex flex-column justify-content-start">
+                <div>
+                    <h4 class="fw-bold mb-5">Why Choose Clarity?</h4>
+                    
+                    <div class="features-list">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="feature-icon-box me-3">
+                                <i class="fa-regular fa-clock"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1">24-Hour Response</h6>
+                                <p class="small mb-0 opacity-75">Quick turnaround on all inquiries</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="feature-icon-box me-3">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1">100% Satisfaction</h6>
+                                <p class="small mb-0 opacity-75">Money-back guarantee</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="feature-icon-box me-3">
+                                <i class="fa-solid fa-users-gear"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Expert Team</h6>
+                                <p class="small mb-0 opacity-75">150+ certified professionals</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="direct-contact">
+                    <hr class="opacity-25 mb-4">
+                    <p class="fw-bold small mb-3 text-uppercase opacity-75">Direct Contact</p>
+                    <div class="mb-2 small"><i class="fa-solid fa-phone me-2"></i> +1 (555) 123-4567</div>
+                    <div class="mb-2 small"><i class="fa-solid fa-envelope me-2"></i> hello@clarity.com</div>
+                    <div class="mb-0 small"><i class="fa-solid fa-location-dot me-2"></i> San Francisco, CA</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script src="./js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script src="./js/contact.js"></script>
+</body>
+</html>

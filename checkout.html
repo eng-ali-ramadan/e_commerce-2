@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout / Payment</title>
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3081/3081840.png">
+    <link rel="stylesheet" href="./css/checkout.css">
+    <!-- استدعاء خط Poppins الحديث ليتناسق مع بقية صفحات المشروع -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- استدعاء مكتبة الأيقونات Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <div class="checkout-container">
+        <h2 class="main-title">Payment</h2>
+
+        <div class="checkout-content">
+
+            <div class="payment-summary-column">
+
+                <div class="payment-methods">
+                    <h3 class="section-subtitle">Payment Method</h3>
+
+                    <label class="method-option active">
+                        <input type="radio" name="payment_method" checked hidden>
+                        <i class="fas fa-check check-icon"></i>
+                        <span class="method-text">Cash on Delivery</span>
+                        <i class="fas fa-money-bill-wave method-icon"></i>
+                    </label>
+
+                    <label class="method-option">
+                        <input type="radio" name="payment_method" hidden>
+                        <i class="fas fa-check check-icon" style="visibility: hidden;"></i>
+                        <span class="method-text">Credit Card</span>
+                        <i class="fas fa-credit-card method-icon"></i>
+                    </label>
+
+                    <label class="method-option">
+                        <input type="radio" name="payment_method" hidden>
+                        <i class="fas fa-check check-icon" style="visibility: hidden;"></i>
+                        <span class="method-text">Vodafone Cash</span>
+                        <i class="fas fa-wallet method-icon"></i>
+                    </label>
+                </div>
+
+                <div class="order-summary">
+                    <h3 class="summary-title">Order Summary</h3>
+
+                    <div class="summary-row">
+                        <span class="row-label">Subtotal</span>
+                        <span class="row-value" id="subtotal-val">0.00 EGP</span>
+                    </div>
+
+                    <div class="summary-row">
+                        <span class="row-label">Shipping</span>
+                        <span class="row-value" id="shipping-val">30.00 EGP</span>
+                    </div>
+
+                    <div class="summary-row total-row">
+                        <span class="row-label">Total</span>
+                        <span class="row-value" id="total-val">0.00 EGP</span>
+                    </div>
+                </div>
+            </div>
+            <div class="shipping-column">
+                <h3 class="section-subtitle">Shipping Information</h3>
+
+                <form class="shipping-form" id="checkout-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Full Name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="tel" placeholder="Phone Number" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" placeholder="Address" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" placeholder="City" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" placeholder="Postal Code">
+                    </div>
+                </form>
+            </div>
+
+        </div> <button type="submit" form="checkout-form" class="confirm-btn">Confirm Order</button>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // 1. قراءة السعر الإجمالي القادم من صفحة السلة باستخدام الاسم المحفوظ في الكود الخاص بكِ
+            let savedSubtotal = localStorage.getItem('checkoutGrandTotal');
+
+            // تحويل النص إلى رقم، وفي حال كانت السلة فارغة أو لم يأتِ رقم نعتبره 0
+            let subtotalNumber = parseFloat(savedSubtotal) || 0;
+
+            // 2. تحديد تكلفة الشحن (يمكنك تعديل الـ 30 لأي قيمة تريدينها)
+            let shippingCost = 30;
+
+            // 3. حساب الإجمالي النهائي (السعر الفرعي + الشحن)
+            let finalTotal = subtotalNumber + shippingCost;
+
+            // 4. عرض القيم الجديدة داخل صفحة الـ Checkout فوراً
+            const subtotalElement = document.getElementById('subtotal-val');
+            const shippingElement = document.getElementById('shipping-val');
+            const totalElement = document.getElementById('total-val');
+
+            if (subtotalElement) subtotalElement.textContent = `${subtotalNumber.toFixed(2)} EGP`;
+            if (shippingElement) shippingElement.textContent = `${shippingCost.toFixed(2)} EGP`;
+            if (totalElement) totalElement.textContent = `${finalTotal.toFixed(2)} EGP`;
+        });
+    </script>
+
+</body>
+
+</html>

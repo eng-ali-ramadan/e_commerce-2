@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3081/3081840.png">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/nav.css">
+    <link rel="stylesheet" href="./CSS/style.css">
+
+    
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #4f46e5;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --glass-bg: rgba(255, 255, 255, 0.8);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        /* --- تنسيق الهيدر الزجاجي --- */
+        .main-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            z-index: 1000;
+            padding: 10px 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+        }
+
+        .navbar {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo a {
+            font-size: 24px;
+            font-weight: 800;
+            text-decoration: none;
+            color: var(--text-dark);
+        }
+
+        .logo a span { color: var(--primary-color); }
+
+        /* شريط البحث */
+        .search-container {
+            flex: 1;
+            max-width: 450px;
+            margin: 0 30px;
+            position: relative;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: 1px solid #e2e8f0;
+            background: #f8fafc;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .search-container input:focus {
+            border-color: var(--primary-color);
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        /* زر المنيو والسلة */
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-menu-btn {
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .nav-menu-btn:hover { background: #e2e8f0; }
+
+        .cart-icon {
+            position: relative;
+            font-size: 22px;
+            color: var(--text-dark);
+            cursor: pointer;
+        }
+
+        #cartCount {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background: #ef4444;
+            color: white;
+            font-size: 11px;
+            padding: 2px 6px;
+            border-radius: 50px;
+        }
+
+        /* --- تنسيق الـ Sidebar (Drawer) --- */
+        .sidebar-drawer {
+            position: fixed;
+            top: 0;
+            left: -320px; /* مخفي */
+            width: 300px;
+            height: 100vh;
+            background: white;
+            z-index: 2000;
+            transition: var(--transition);
+            box-shadow: 10px 0 50px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-drawer.active { left: 0; }
+
+        .sidebar-header {
+            padding: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .sidebar-brand { display: flex; align-items: center; gap: 10px; }
+        .sidebar-brand img { width: 30px; }
+        .sidebar-brand span { font-size: 20px; font-weight: 700; color: var(--text-dark); }
+
+        .close-btn {
+            background: #f8fafc;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        /* روابط السايدبار */
+        .sidebar-list { list-style: none; padding: 20px 0; }
+
+        .sidebar-list li a {
+            display: flex;
+            align-items: center;
+            padding: 15px 25px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            gap: 15px;
+            transition: var(--transition);
+        }
+
+        .sidebar-list li a:hover, .sidebar-list li a.active {
+            background: #f8fafc;
+            color: var(--primary-color);
+        }
+
+        /* ألوان الأيقونات مثل صورتك */
+        .home-icon { color: #6366f1; }
+        .products-icon { color: #3b82f6; }
+        .categories-icon { color: #f59e0b; }
+        .about-icon { color: #10b981; }
+        .contact-icon { color: #ec4899; }
+
+        .arrow { margin-left: auto; font-size: 12px; opacity: 0.5; }
+
+        /* الخلفية المظلمة */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            z-index: 1500;
+            display: none;
+            backdrop-filter: blur(4px);
+        }
+        .hero {
+            background-color: #ffffff;
+        }
+
+        .text-orange {
+            color: #007aff !important;
+        }
+
+        .btn-orange {
+            background-color: #007aff;  
+            color: white; 
+            border-radius: 50px;
+            padding: 12px 35px; 
+            border: none; 
+            transition: all 0.3s ease;
+        }
+
+        .btn-orange:hover {
+            background-color: #007aff;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(17, 148, 236, 0.2) !important;
+        }
+
+        .btn-outline-custom {
+            background-color: #ffffff;
+            color: #6c757d;
+            border-radius: 50px;
+            padding: 12px 35px;
+            border: 1px solid #ced4da;
+            box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-custom:hover {
+            color: #007aff !important;
+            border-color: #007aff !important;
+            transform: translateY(-3px);
+        }
+
+        .lniar {
+            color: #007aff;
+        }
+
+        .bla {
+            color: #007aff;
+        }
+
+        /* تعديل حاوية الصورة لتكون مستقيمة ومطابقة للأصل */
+        .image-container-block {
+            position: relative;
+            background-color: #ffffff;
+            padding: 25px; /* مسافة الإطار الأبيض المحيط بالصورة */
+            border-radius: 16px;
+            box-shadow: 0 1rem 3rem rgba(0,0,0,0.1) !important;
+        }
+
+        /* الأشكال البيضاء الصغيرة العائمة في زوايا الإطار بالأصل */
+        .corner-badge-top {
+            position: absolute;
+            top: -12px;
+            left: 40px;
+            background-color: #ffffff;
+            width: 25px;
+            height: 25px;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .corner-badge-bottom {
+            position: absolute;
+            bottom: -12px;
+            right: 40px;
+            background-color: #ffffff;
+            width: 25px;
+            height: 25px;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+            .bg-soft-red { background-color: #fff0f0 !important; }
+            
+            .main-title {
+                color: #007aff !important; 
+                font-size: 36px;
+                font-weight: 900;
+                
+            }
+                
+        .subtitle {
+        color: #007aff; 
+        font-size: 14px;
+        text-shadow: 0 0 10px rgba(212, 255, 0, 0.5);
+        }
+        .line {
+        height: 2px;
+        width: 80px;
+        }
+
+        .line.left {
+        background: linear-gradient(to right, transparent, #007aff);
+        }
+
+        .line.right {
+        background: linear-gradient(to left, transparent, #007aff);
+        }
+
+        .card-body{
+        height: 320px;
+        }
+        .main-title {
+        font-size: 48px;
+        font-weight: 900;
+        }
+
+
+
+        .arrow-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 1px solid #555555;
+            background: transparent;
+            color: #9c9898;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+        }
+
+        .arrow-btn:hover {
+            color: #007aff;
+            border-color: #007aff;
+            
+        }
+                .team{
+            background-color:#FFFF ;
+        }
+        .rotate{
+            writing-mode: vertical-rl;
+        }
+        .layer{
+            transition: all 0.4s;
+            background-color: #303030 !important;
+        }
+        .card-body:hover .layer{
+            transform: translateY(-100%);
+        }
+        .card-body:hover .contint p{
+            color: #b7eb0a;
+        }
+        .container {
+            margin-top: 0px !important;
+        }
+
+        .contint span{
+            font-size: 12px;
+            color: #808894 !important;
+        }
+        .contint h5{
+            width: 70%;
+        }
+        .team .card{
+            cursor: pointer;
+        }
+
+        .t1{
+            
+            background-image: url(./about/images/Ahmed_Mashour1.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+        .t2{
+            
+            background-image: url(./about/images/Ahmed_Shehata.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+        .t3{
+            
+            background-image: url(./about/images/Ahmed_Eid.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+        .t4{
+            
+            background-image: url(./about/images/Abdo.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+        .t5{
+            
+            background-image: url(./about/images/Ali.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+
+        .t6{
+            
+            background-image: url(./about/images/Osama_Mustafa.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+
+        
+        /* .t5{
+            
+            background-image: url(images/avatar-5.png);
+            background-position: center;
+            background-size: cover;
+        } */
+        
+
+</style>
+</head>
+<body>
+
+    <aside id="sidebar" class="sidebar-drawer">
+        <div class="sidebar-header">
+            <div class="sidebar-brand">
+                <img src="https://cdn-icons-png.flaticon.com/512/3081/3081840.png" alt="Logo">
+                <span>Menu</span>
+            </div>
+            <button id="closeSidebar" class="close-btn"><i class="fas fa-times"></i></button>
+        </div>
+
+        <ul class="sidebar-list">
+            <li><a href="./html/index.html" class="active"><i class="fas fa-home home-icon"></i> Home</a></li>
+            <li><a href="./about/index.html"><i class="fas fa-info-circle about-icon"></i> About Us</a></li>
+            <li><a href="./html/contact.html"><i class="fas fa-envelope contact-icon"></i> Contact Us</a></li>
+            <li><a href="./html/login.html"><i class="fas fa-user login-icon"></i> Login</a></li>
+            <li><a href="./html/register.html"><i class="fas fa-user register-icon"></i> Register</a></li>
+           
+
+        </ul>
+    </aside>
+
+    <div id="overlay" class="overlay"></div>
+
+
+<section class="pb-5 hero min-vh-100 container" id="home">
+
+        <div class="text-center d-flex flex-column align-items-center py-5">
+  <div class="subtitle-wrapper   d-flex align-items-center gap-2 ">
+    <span class="line left"></span>
+    <h2 class="subtitle">about us</h2>
+    <span class="line right"></span>
+  </div>
+  <h1 class="main-title my-2 text-center w-50 text-light">WELCOME TO TECH NOVA</h1>
+<pre class="text-center" style="color:#99A1AF ;">Discover premium laptops and trusted technology for every lifestyle 
+</pre>
+</div>
+    <div class="container">
+        <div class="row align-items-center g-5 ">
+            
+            <!-- القسم الأيسر: النصوص والبيانات -->
+            <div class="col-lg-6">
+                <!-- الـ Badge العلوي -->
+                <span class="badge rounded-pill bg-light text-orange px-3 py-2 fw-bold mb-4 shadow-sm" style="background-color: #fff4ec !important;">
+                    <i class="fa-solid fa-rocket me-1"></i> Premium Laptops & Accessories
+                </span>
+                
+                <!-- العنوان الرئيسي المنظم -->
+                <h1 class="display-4 fw-bold mb-4" style="line-height: 1.2;">
+                    <span class="lniar d-block">Premium Laptops</span>
+                    <span class="bla d-block">For Every</span>
+                    <span class="text-orange">Need</span>
+                </h1>
+                
+                <!-- النص الوصفي المتناسق مع الحجم الأصلي -->
+                <p class="text-secondary mb-4" style="font-size: 15px; line-height: 1.6; text-align: justify;">
+                    Welcome to TECHNOVA, your trusted destination for the latest laptops, smartphones, and computer accessories. At TECHNOVA, we are passionate about technology and committed to providing high-quality products from leading brands at competitive prices, TECHNOVA is here to help you find the perfect solution. We focus on delivering an exceptional shopping experience through reliable products, secure transactions, fast delivery, and dedicated customer support. Thank you for choosing TECHNOVA as your technology partner.
+                </p>
+                
+                <!-- الأزرار بالتصميم الانسيابي غير العريض -->
+                <div class="d-flex gap-3 mb-5 flex-wrap">
+                    
+                    
+                </div>
+ 
+                <!-- الإحصائيات السفلية -->
+                <div class="row g-4 pt-2">
+                    <div class="col-4 text-center border-end">
+                        <h3 class="fw-bold text-orange mb-1">500+</h3>
+                        <small class="text-muted text-uppercase fw-semibold" style="font-size: 10px; letter-spacing: 0.5px;">Projects Delivered</small>
+                    </div>
+                    <div class="col-4 text-center border-end">
+                        <h3 class="fw-bold text-orange mb-1">98%</h3>
+                        <small class="text-muted text-uppercase fw-semibold" style="font-size: 10px; letter-spacing: 0.5px;">Satisfaction</small>
+                    </div>
+                    <div class="col-4 text-center">
+                        <h3 class="fw-bold text-orange mb-1">24/7</h3>
+                        <small class="text-muted text-uppercase fw-semibold" style="font-size: 10px; letter-spacing: 0.5px;">Support</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- القسم الأيمن: حاوية الصورة المستقيمة كالتصميم الأصلي -->
+            <div class="col-lg-6">
+                <!-- الحاوية البيضاء المستقيمة تماماً بدون تدوير -->
+                <div class="image-container-block">
+                    
+                    <!-- الصورة داخل الإطار -->
+                    <img src="./about/images/WhatsApp Image 2026-06-16 at 11.46.51 PM.jpeg" class="img-fluid rounded-3 w-100" alt="Digital Experience Workspace">
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+    <section id="our-team" class="team " >
+
+        <div class="text-center d-flex flex-column align-items-center py-5">
+            <div class="subtitle-wrapper   d-flex align-items-center gap-2 ">
+                <span class="line left"></span>
+                <h2 class="subtitle">our team</h2>
+                <span class="line right"></span>
+            </div>
+            <h1 class="main-title my-2 text-center w-50 text-light">Our Best Team Members</h1>
+            <pre class="text-center" style="color:#99A1AF ;">Meet the professional gamers and experts behind 
+            our success 
+            </pre>
+        </div>
+        <div class="container-lg ">
+            <div class="row justify-content-center">
+
+
+                <div class="col-12  col-md-6 col-lg-3  mt-2">
+                    <div class="card  rounded-4 t1 bordeer">
+                    <div class="card-body d-flex align-items-end p-2 pb-0 rounded-4 t1 position-relative overflow-hidden">
+                    <div class="layer position-absolute top-0 end-0 opacity-75 w-100 h-100 bg-dark rounded-4"></div>
+                    <div class="contint text-light w-100 ">
+                <h5>Ahmed Mashour </h5>
+                <div class="bot d-flex justify-content-between w-100">
+                    <div class="rit">   <p class="m-0">Head Coach - CS:GO </p>
+                    <span></span>
+                </div>
+                <p class="rotate"> </p>
+                </div>
+                    </div>
+                    </div>
+                    </div>
+                </div>
+
+
+                <div class="col-12  col-md-6 col-lg-3 mt-2">
+                    <div class="card  rounded-4 t1 bordeer">
+                    <div class="card-body d-flex align-items-end p-2 pb-0 rounded-4 t2 position-relative overflow-hidden">
+                    <div class="layer position-absolute top-0 end-0 opacity-75 w-100 h-100 bg-dark rounded-4"></div>
+                    <div class="contint text-light w-100 ">
+                <h5>Ahmed Shehata </h5>
+                <div class="bot d-flex justify-content-between w-100">
+                    <div class="rit">   <p class="m-0">Coach - CS:GO </p>
+                    <span></span>
+                </div>
+                <p class="rotate"> </p>
+                </div>
+                    </div>
+                    </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-12  col-md-6 col-lg-3 h-50 mt-2">
+                    <div class="card  rounded-4 t1 bordeer">
+                    <div class="card-body d-flex align-items-end p-2 pb-0 rounded-4 t3 position-relative overflow-hidden">
+                    <div class="layer position-absolute top-0 end-0 opacity-75 w-100 h-100 bg-dark rounded-4"></div>
+                    <div class="contint text-light w-100 ">
+                <h5>Ahmed Eid </h5>
+                <div class="bot d-flex justify-content-between w-100">
+                    <div class="rit">   <p class="m-0">Coach - CS:GO </p>
+                    <span></span>
+                </div>
+                <p class="rotate"> </p>
+                </div>
+                    </div>
+                    </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-12  col-md-6 col-lg-3 h-50 mt-2">
+                    <div class="card  rounded-4 t1 bordeer">
+                    <div class="card-body d-flex align-items-end p-2 pb-0 rounded-4 t4 position-relative overflow-hidden">
+                    <div class="layer position-absolute top-0 end-0 opacity-75 w-100 h-100 bg-dark rounded-4"></div>
+                    <div class="contint text-light w-100 ">
+                <h5>El-Menofy </h5>
+                <div class="bot d-flex justify-content-between w-100">
+                    <div class="rit">   <p class="m-0">Coach - CS:GO </p>
+                    <span></span>
+                </div>
+                <p class="rotate"> </p>
+                </div>
+                    </div>
+                    </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-12  col-md-6 col-lg-3 h-50 mt-2">
+                    <div class="card  rounded-4 t1 bordeer">
+                    <div class="card-body d-flex align-items-end p-2 pb-0 rounded-4 t5 position-relative overflow-hidden">
+                    <div class="layer position-absolute top-0 end-0 opacity-75 w-100 h-100 bg-dark rounded-4"></div>
+                    <div class="contint text-light w-100 ">
+                <h5>Ali Ramadan </h5>
+                <div class="bot d-flex justify-content-between w-100">
+                    <div class="rit">   <p class="m-0">Coach - CS:GO </p>
+                    <span></span>
+                </div>
+                <p class="rotate"> </p>
+                </div>
+                    </div>
+                    </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-12  col-md-6 col-lg-3  mt-2">
+                    <div class="card  rounded-4 t1 bordeer">
+                    <div class="card-body d-flex align-items-end p-2 pb-0 rounded-4 t6 position-relative overflow-hidden">
+                    <div class="layer position-absolute top-0 end-0 opacity-75 w-100 h-100 bg-dark rounded-4"></div>
+                    <div class="contint text-light w-100 ">
+                <h5>Osama Mustafa</h5>
+                <div class="bot d-flex justify-content-between w-100">
+                    <div class="rit">   <p class="m-0">Head Coach - CS:GO </p>
+                    <span></span>
+                </div>
+                <p class="rotate"> </p>
+                </div>
+                    </div>
+                    </div>
+                    </div>
+                </div>
+
+
+
+                
+
+
+                </div>
+
+                <div class="row mt-3">
+
+                </div>
+
+        </div>
+</section>
+
+<script src="./js/script.js"></script>
+
+</body>
+</html>

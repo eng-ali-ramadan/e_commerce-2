@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3081/3081840.png">
+    <link rel="stylesheet" href="./css/Dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>Tech Store</h2>
+            <ul>
+                <li><i class="fa fa-home"></i><a href="./Dashboard.html" >Dashboard</a></li>
+                <li> <i class="fa-solid fa-border-all"></i><a href="./Categories.html" >Categories</a> </li>
+                <li> <i class="fa-solid fa-boxes-stacked"></i> <a href="./product.html">Products</a></li>
+                <li><i class="fa fa-shopping-cart"></i> Orders</li>
+                <li><i class="fa fa-users"></i><a href="./html/createadmin.html">Create Admin/user</a></li>
+            </ul>
+        </div>
+
+        <!-- Main -->
+        <div class="main">
+
+            <!-- Header -->
+            <div class="header">
+                <h1>Dashboard</h1>
+            </div>
+
+            <!-- Cards -->
+            <div class="cards">
+                <div class="card">
+                    <h3>Sales</h3>
+                    <p>120,000 EGP</p>
+                </div>
+                <div class="card">
+                    <h3>Orders</h3>
+                    <p>320</p>
+                </div>
+                <div class="card">
+                    <h3>Products</h3>
+                    <p>85</p>
+                </div>
+                <div class="card">
+                    <h3>Customers</h3>
+                    <p>150</p>
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="table-section">
+                <h2>Latest Products</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>iPhone 15</td>
+                            <td>Mobile</td>
+                            <td>45,000 EGP</td>
+                            <td class="available">Available</td>
+                        </tr>
+                        <tr>
+                            <td>Samsung S24</td>
+                            <td>Mobile</td>
+                            <td>38,000 EGP</td>
+                            <td class="available">Available</td>
+                        </tr>
+                        <tr>
+                            <td>Dell XPS 13</td>
+                            <td>Laptop</td>
+                            <td>55,000 EGP</td>
+                            <td class="out">Out of stock</td>
+                        </tr>
+                        <tr>
+                            <td>HP Pavilion</td>
+                            <td>Laptop</td>
+                            <td>30,000 EGP</td>
+                            <td class="available">Available</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="./js/dashicon.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,310 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: Inter, sans-serif;
+}
+
+:root {
+    --ring-offset-color: #fff;
+    --ring-color: rgba(66, 153, 225, 0.6);
+    --swiper-theme-color: #007aff; 
+    --chakra-colors-blue-700: #173da6;
+    --chakra-colors-blue-800: #1a3478;
+    --chakra-colors-blue-900: #14204a;
+    --chakra-colors-blue-950: #0c142e;
+}
+
+.container {
+    width: 100%;
+    margin: auto;
+    max-width: 1500px;
+    padding-top: 20px;
+    margin-top: 40px;
+}
+
+body {
+    margin-top: 20px;
+}
+   
+.slider {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 10px auto;
+}
+
+.swiper {
+    width: 90%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 40px;
+    margin: 10px auto;
+    position: relative; /* لضمان تموضع الأسهم بالنسبة للسلايدر */
+}
+
+.mainSwiper .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* إظهار نقاط التحكم في السلايدر الرئيسي */
+.mainSwiper .swiper-pagination {
+    visibility: visible !important;
+    bottom: 15px !important;
+}
+
+.slider_banner {
+    width: 100%;
+    height: 100%;
+}
+
+.slider_banner .banners {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    gap: 10px;
+    margin: 1px auto;
+}
+
+.banners .box {
+    width: 25%;
+    height: 100%;
+    border-radius: 40px;
+}
+
+.banners .box img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 40px;
+}
+
+/* سكشن المنتجات والسلايدر */
+.slider_products {
+    position: relative;
+    padding: 20px 0;
+}
+
+.top_slide {
+    position: relative;
+    margin-bottom: 20px;
+    border-bottom: 3px solid rgb(77, 195, 246);
+}
+
+.top_slide h2, .Top-slider .content .name {
+    text-transform: uppercase;
+    background: rgb(77, 195, 246);
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: max-content;
+}
+
+/* ضبط الأسهم وتأثير تحريك المنتجات (علامات أكبر من وأصغر من) */
+.btn_swipx {
+    color: #007aff !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    width: 45px !important;
+    height: 45px !important;
+    border-radius: 50% !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important;
+    top: 55% !important;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.btn_swipx:hover {
+    background: #007aff !important;
+    color: #fff !important;
+}
+
+.btn_swipx::after {
+    font-size: 16px !important;
+    font-weight: bold;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: rgba(148, 148, 148, 0.12) 5px 5px 15px;
+    border: 1px solid #e5e5e5;
+    border-radius: 15px;
+    height: auto;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+.product:hover {
+    border: 1px solid var(--swiper-theme-color);
+    transform: translateY(-5px);
+}
+
+.product .sale_present {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    background: rgb(237, 5, 5);
+    color: #fff;
+    padding: 4px 10px;
+    font-size: 11px;
+    border-radius: 5px;
+}
+
+.product .img_product {
+    position: relative;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.product .img_product img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: 0.3s;
+}
+
+.product:hover .img_product img {
+    transform: scale(1.05);
+}
+
+.product .name_product {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: black;
+    
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    height: auto; 
+  
+}
+
+.price {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.price p {
+    color: var(--swiper-theme-color);
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.product button {
+    background-color: rgba(218, 241, 251, 0.765);
+    color: #1a5b9b;
+    font-size: 15px;
+    font-weight: 600;
+    border: 1px solid #d0e4f2;
+    border-radius: 9px;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.product button:hover {
+    background-color: rgb(48, 68, 126);
+    color: white;
+} 
+
+
+/* =======================================
+
+/* البنرات الفاصلة للابتوب */
+.laptops {
+    width: 90%;
+    margin: 40px auto;
+}
+
+.laptops .img_laptop img {
+    width: 100%;
+    height: auto;
+    max-height: 260px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+.Shoping_cart {
+    list-style: none;
+    display: inline-block;
+    position: relative;
+    padding: 10px; /* يعطي مساحة مريحة حول الأيقونة للضغط */
+}
+
+/* تنسيق رابط السلة */
+#cart-icon-link {
+    font-size: 26px; /* حجم الأيقونة */
+    color: #000000; /* لون الأيقونة الافتراضي (يمكنك تغييره حسب رغبتك) */
+    transition: color 0.2s ease;
+}
+
+/* تأثير عند تمرير الماوس فوق السلة */
+#cart-icon-link:hover {
+    color: #db4444; /* يتغير لون الأيقونة للأحمر عند الهوفر */
+}
+
+/* تنسيق العداد الرقمي (البادج) */
+.Shoping_cart .badge {
+    position: absolute;
+    top: -5px; /* لضبط الارتفاع بالأعلى */
+    right: -12px; /* لضبط المحاذاة أقصى اليمين */
+    background-color: #0051e7d2; /* اللون الأحمر المميز */
+    color: #ffffff; /* لون الرقم بالداخل */
+    font-size: 11px; /* حجم الخط داخل العداد */
+    font-weight: 600; /* سمك الخط */
+    min-width: 18px; /* الحد الأدنى للعرض ليظل دائرياً */
+    height: 18px; /* الارتفاع */
+    border-radius: 50%; /* لجعل الحواف دائرية تماماً */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px; /* مساحة داخلية صغيرة لحماية الأرقام الكبيرة من الالتصاق بالحواف */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* ظل خفيف يعطي بعداً جمالياً */
+    pointer-events: none; /* لمنع العداد من تشتيت نقرات الماوس عن الأيقونة */
+}
+/* الشاشات المتوسطة والصغيرة */
+@media (max-width: 900px) {
+    .banners { flex-wrap: wrap; }
+    .banners .box { width: 48%; margin-bottom: 10px; }
+    .laptops { width: 95%; }
+}
+
+@media (max-width: 600px) {
+    .banners .box { width: 100%; }
+    .product .name_product { font-size: 13px; }
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Categories</title>
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3081/3081840.png">
+    <link rel="stylesheet" href="./css/Dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+
+         <div class="sidebar">
+            <h2>Tech Store</h2>
+            <ul>
+                <li><i class="fa fa-home"></i><a href="./Dashboard.html" >Dashboard</a></li>
+                <li> <i class="fa-solid fa-border-all"></i><a href="./Categories.html" >Categories</a> </li>
+                <li> <i class="fa-solid fa-boxes-stacked"></i> <a href="./product.html">Products</a></li>
+                <li><i class="fa fa-shopping-cart"></i> Orders</li>
+                <li><i class="fa fa-users"></i><a href="./html/createadmin.html">Create Admin/user</a></li>
+            </ul>
+        </div>
+
+
+        <div class="main">
+            <h1>Categories </h1>
+
+            <!-- ADD -->
+            <div class="form">
+                <input type="text" id="catName" placeholder="Enter category name">
+                <button onclick="createCategory()">Add</button>
+            </div>
+
+            <!-- GET BY ID -->
+            <div class="form">
+                <input type="text" id="catId" placeholder="Enter category ID">
+                <button onclick="getCategoryById()">Search</button>
+                <button onclick="getAllCategories()">Show All</button>
+            </div>
+
+            <!-- TABLE -->
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="categoriesTable"></tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+    <script src="./js/Categories.js"></script> 
+
+</body>
+
+</html>
