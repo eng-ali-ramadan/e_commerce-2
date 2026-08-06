@@ -17,10 +17,11 @@
 }
 
 body.dark{
-    --bg-color: #1e293b;
-    --text-main: #f1f5f9;
-    --card-bg: #334155;
-    --border-color: #475569;
+    --bg-color: #0f172a;        /* خلفية الصفحة: كحلي داكن جداً ومريح للعين */
+    --text-main: #f8fafc;       /* لون النصوص: أبيض ناصع وواضح */
+    --card-bg: #1e293b;        /* خلفية الكروت والـ Drawer: كحلي داكن متناسق */
+    --border-color: #334155;    /* ألوان الحدود والـ Borders */
+    --hover-color: #334155;     /* لون الـ Hover على الروابط في الوضع الليلي */
 }
 
 body{
@@ -118,14 +119,68 @@ header{
 }
 
 body.dark .search-dropdown{
-    background: #1f2937;
+    background: #1e293b;
+    border: 1px solid #334155;
+    color: #f8fafc;
 }
 
 body.dark .search-item:hover{
-    background: #374151;
+    background: #334155;
 }
 
+
+body.dark .carts_products {
+    background-color: #1e293b;
+    border-color: #3b82f6;
+    color: #f8fafc;
+}
+
+body.dark .Shoping_cart i,
+body.dark .icons i {
+    color: #f8fafc;
+}
 /* ================= SEARCH RESULTS ================= */
+ .product-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* عرض سطرين فقط */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 2.8em; /* تثبيت الارتفاع لتبقى كل الكروت بنفس المقاس */
+}
+
+
+/* الشكل الافتراضي للكارت في الوضع النهاري */
+.product-card, .card {
+    background-color: var(--card-bg) !important;
+    color: var(--text-main) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 12px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* التأكد من أن ألوان النصوص داخل الكارت تتغير في الوضع الليلي */
+body.dark .product-card, 
+body.dark .card {
+    background-color: #1e293b !important; /* لون كحلي داكن متناسق مع الخلفية */
+    border-color: #334155 !important;
+    color: #f8fafc !important;
+}
+
+/* تعديل خلفية زر Add to Cart في الوضع الليلي داخل الكارت */
+body.dark .product-card .btn,
+body.dark .card button {
+    background-color: #0f172a;
+    color: #38bdf8;
+    border: 1px solid #334155;
+}
+
+body.dark .product-card .btn:hover,
+body.dark .card button:hover {
+    background-color: #0a78ff;
+    color: #ffffff;
+}  
+
+
 
 .search-products{
     display: grid;
@@ -316,13 +371,22 @@ body.dark .search-item:hover{
 }
 
 /* دعم الوضع الليلي Dark Mode إذا كان لديك خيار التحويل */
-body.dark #drawer-navigation {
-    background-color: #1e293b !important;
+body.dark #drawer-navigation,
+body.dark #drawer-wishlist {
+    background-color: #1e293b !important; /* خلفية الـ Drawer في الوضع الليلي */
+    color: #f8fafc !important;
 }
+
 body.dark #drawer-navigation .drawer-link,
 body.dark #drawer-navigation .dropdown-link,
-body.dark #drawer-navigation .drawer-text {
-    color: #ffffff !important;
+body.dark #drawer-navigation .drawer-text,
+body.dark #drawer-wishlist h5 {
+    color: #f8fafc !important; /* لون النصوص والروابط داخل الـ Drawer */
+}
+
+body.dark #drawer-navigation .hover-bg:hover,
+body.dark #drawer-wishlist .hover-bg:hover {
+    background-color: #334155 !important; /* لون التمرير (Hover) على عناصر الـ Drawer */
 }
 
 
