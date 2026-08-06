@@ -2,30 +2,30 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Accessories - Tech Nova</title>
-  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3081/3081840.png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="./css/bootstrap.min.css">
-  
-  <link rel="stylesheet" href="./css/prod1.css">
-  <link rel="stylesheet" href="./css/all.css">
-  <link rel="stylesheet" href="./css/nav.css">
-  <link rel="stylesheet" href="./css/footer.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3081/3081840.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <script>
-    const CURRENT_CATEGORY = "accessories";
-  </script>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./css/nav.css">
+    <link rel="stylesheet" href="./css/prod1.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
-<header class="position-sticky">
+
+    <header class="position-sticky">
         <nav class="navbar navbar-expand-lg nav-custom shadow-sm py-2">
-            <div class="container-fluid d-flex align-items-center justify-content-around">          
+            <div class="container-fluid d-flex align-items-center justify-content-around">
                 <div class="logo d-flex align-items-center">
                     <img src="./image/nav/loogo.png">
                 </div>
@@ -33,99 +33,153 @@
                 <div class="search-box d-flex">
                     <i class="fas fa-search"></i>
                     <input class="form-control" type="search" placeholder="Search for anything" aria-label="Search">
-                    <button type="button" class="btn btn-outline-primary">Search</button>
+                    
                 </div>
 
+            <div class="search-dropdown" id="searchDropdown">
+                <div class="search-item" data-target="mobile">📱 Mobiles</div>
+                <div class="search-item" data-target="laptop">💻 Laptops</div>
+                <div class="search-item" data-target="headphone">🎧 Headphones</div>
+                <div class="search-item" data-target="accessory">⌨️ Accessories</div>
+                <div class="search-item" data-target="hotdeal">🔥 Hot Deals</div>
+            </div>
+
                 <div class="icons d-flex align-items-center">
-                    <div class="position-relative d-flex align-items-center justify-content-center" style="cursor: pointer;" data-drawer-target="drawer-wishlist" data-drawer-show="drawer-wishlist" data-drawer-placement="right" aria-controls="drawer-wishlist">
+                    <div class="position-relative d-flex align-items-center justify-content-center"
+                        style="cursor: pointer;" data-drawer-target="drawer-wishlist" data-drawer-show="drawer-wishlist"
+                        data-drawer-placement="right" aria-controls="drawer-wishlist">
                         <i class="far fa-heart mx-3 text-xl"></i>
-                        <span id="wishlist-badge" class="position-absolute top-0 end-0 translate-middle badge rounded-pill bg-danger" style="font-size: 0.65rem; padding: 0.35em 0.5em; display: none; z-index: 10;">0</span>
+                        <span id="wishlist-badge"
+                            class="position-absolute top-0 end-0 translate-middle badge rounded-pill bg-danger"
+                            style="font-size: 0.65rem; padding: 0.35em 0.5em; display: none; z-index: 10;">0</span>
                     </div>
-                    
+
                     <div class="user">
                         <div id="user_info" style="display:none;">
                             Hello, <span id="user"></span>
                         </div>
                         <div id="links">
                             <a href="login.html"> <button type="button" class="btn btn-outline-info">login</button></a>
-                            <a href="registar.html"> <button type="button" class="btn btn-outline-info">Registir</button></a>
+                            <a href="registar.html"> <button type="button"
+                                    class="btn btn-outline-info">Registir</button></a>
                         </div>
                     </div>
 
-                    <!-- تم تعديل الأيقونة هنا لتفتح صفحة العربة المستقلة (cart.html) وربط الـ Badge بكود الـ JS الخاص بك -->
-                    <div class="Shoping_cart position-relative d-flex align-items-center justify-content-center" style="cursor: pointer;">
+                    <div class="Shoping_cart p-0 position-relative d-flex align-items-center justify-content-center"
+                        style="cursor: pointer;">
                         <a href="cart.html" id="cart-icon-link">
                             <i class="fa-solid fa-cart-arrow-down mx-3 text-xl"></i>
                         </a>
-                     </div>
+                        
+                    </div>
 
-                    <button id="log" onclick="logout()" type="button" class="btn btn-outline-danger" style="display:none;">
+                    <button id="log" onclick="logout()" type="button" class="btn btn-outline-danger"
+                        style="display:none;">
                         Logout
                     </button>
                 </div>
             </div>
         </nav>
 
-        <div class="nav2">
-            <div class="text-center mt-0">
-                <button class="nav-btn" type="button" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
-                    <span>☰ Show Navigation</span>
-                </button>
-            </div>
-
-            <div class="theme-switch">
-                <div class="switch-ball"></div>
-                <i class="fa-solid fa-sun" id="light"></i>
-                <i class="fa-solid fa-moon" id="dark"></i>
-            </div>
-        </div>
-    </header>
-
-<div id="drawer-navigation" class="position-fixed fixed top-0 left-0 w-64 h-screen p-4 overflow-y-auto transition-transform -translate-x-full drawer-box" tabindex="-1" style="top: 0; left: 0; height: 100vh; z-index: 9999;">
-        <div class="border-bottom pb-3 d-flex align-items-center justify-content-between">
-            <div class="d-flex align-items-center gap-2">
-                <img src="./image/nav/lonn.png" class="h-8 w-8" alt="Logo" style="border-radius: 50%;"/>
-                <span class="fw-bold fs-5 drawer-text">Categories</span>
-            </div>
-            <button type="button" data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation" class="btn btn-sm btn-light">✖</button>
-        </div>
-
-        <div class="py-4">
-            <ul class="list-unstyled">
-                <li class="mb-2 hover-bg">
-                    <a href="Dashboard.html" class="drawer-link d-flex align-items-center gap-2 text-decoration-none p-2 rounded">
-                         Bars Dashboard
-                    </a>
-                </li>
-                <li class="mb-2">
-                    <button type="button" class="btn w-100 text-start d-flex align-items-center justify-content-between p-2 drawer-link" data-bs-toggle="collapse" data-bs-target="#dropdown-example">
-                        📂 Categories ▼
-                    </button>
-                    <div id="dropdown-example" class="collapse ms-3 mt-2">
-                        <li class="mb-2 hover-bg"><a href="./laptop.html" class="dropdown-link">💻 Laptops</a></li>
-                        <li class="mb-2 hover-bg"><a href="./mobile.html" class="dropdown-link">📱 Mobiles</a></li>
-                        <li class="mb-2 hover-bg"><a href="./acc.html" class="dropdown-link">🎧 Accessories</a></li>
-                    </ul>
-                </li>
-                <li class="mb-2 hover-bg"><a href="index.html" class="drawer-link d-flex align-items-center gap-2 text-decoration-none p-2 rounded">📥 Home</a></li>
-                <li class="mb-2 hover-bg"><a href="./html/contact.html" class="drawer-link d-flex align-items-center gap-2 text-decoration-none p-2 rounded">👥 Contact</a></li>
-                <li class="mb-2 hover-bg"><a href="./aboutNew/about/index.html"
-                        class="drawer-link d-flex align-items-center gap-2 text-decoration-none p-2 rounded">
-                        ℹ️About</a> 
-                </li>
-            </ul>
-        </div>
+    <div class="nav2 position-sticky">
+    <div class="text-center mt-0">
+        <button class="nav-btn" type="button" data-drawer-target="drawer-navigation"
+            data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
+            <span>☰ Show Navigation</span>
+        </button>
     </div>
 
-    <div id="drawer-wishlist" class="fixed top-0 right-0 z-50 md:w-[40%] w-[85%] h-screen p-6 overflow-y-auto transition-transform translate-x-full bg-white dark:bg-gray-800 shadow-lg" tabindex="-1" aria-labelledby="drawer-right-label">
-        <h5 id="drawer-right-label" class="inline-flex items-center mb-4 text-lg font-bold text-gray-700 dark:text-gray-300">
-            <i class="fas fa-heart me-2 text-red-500"></i> يخي اشتري بقي بدل منت زبون #$%#$1
-        </h5>
-        <button type="button" data-drawer-hide="drawer-wishlist" aria-controls="drawer-wishlist" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-content-center dark:hover:bg-gray-600 dark:hover:text-white">
+    <div class="theme-switch">
+        <div class="switch-ball"></div>
+        <i class="fa-solid fa-sun" id="light"></i>
+        <i class="fa-solid fa-moon" id="dark"></i>
+    </div>
+</div>
+</header>
+
+<!-- تم تغيير absolute إلى position-fixed و fixed لضمان البقاء على الشاشة أثناء الـ Scroll -->
+<div id="drawer-navigation"
+    class="position-fixed fixed top-0 left-0 z-50 w-64 h-screen p-4 overflow-y-auto transition-transform -translate-x-full drawer-box"
+    tabindex="-1" style="top: 0; left: 0; height: 100vh; z-index: 9999;">
+    
+    <div class="border-bottom pb-3 d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center gap-2">
+            <img src="./image/nav/lonn.png" class="h-8 w-8" alt="Logo" style="border-radius: 50%;" />
+            <span class="fw-bold fs-5 drawer-text">Categories</span>
+        </div>
+        <button type="button" data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation"
+            class="btn btn-sm btn-light">✖</button>
+    </div>
+
+    <div class="py-4">
+        <ul class="list-unstyled">
+            <li class="mb-2 hover-bg">
+                <a href="./login.html"
+                    class="drawer-link d-flex align-items-center gap-2 text-decoration-none p-2 rounded">
+                    Bars Dashboard
+                </a>
+            </li>
+            <li class="mb-2">
+                <button type="button"
+                    class="btn w-100 text-start d-flex align-items-center justify-content-between p-2 drawer-link"
+                    data-bs-toggle="collapse" data-bs-target="#dropdown-example">
+                    <span>📂 Categories</span>
+                    <span>▼</span>
+                </button>
+                <div id="dropdown-example" class="collapse ms-3 mt-2">
+                    <ul class="list-unstyled">
+                        <li class="mb-2 hover-bg"><a href="./laptop.html" class="dropdown-link text-decoration-none d-block p-1">💻 Laptops</a></li>
+                        <li class="mb-2 hover-bg"><a href="./mobile.html" class="dropdown-link text-decoration-none d-block p-1">📱 Mobiles</a></li>
+                        <li class="mb-2 hover-bg"><a href="./acc.html" class="dropdown-link text-decoration-none d-block p-1">🎧 Accessories</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="mb-2 hover-bg">
+                <a href="/index.html"
+                    class="drawer-link d-flex align-items-center gap-2 text-decoration-none p-2 rounded">📥 Home</a>
+            </li>
+            <li class="mb-2 hover-bg">
+                <a href="./contact.html"
+                    class="drawer-link d-flex align-items-center gap-2 text-decoration-none p-2 rounded">
+                    👥 Contact</a> 
+            </li>
+            <li class="mb-2 hover-bg">
+                <a href="./aboutNew/about/index.html"
+                    class="drawer-link d-flex align-items-center gap-2 text-decoration-none p-2 rounded">
+                    ℹ️ About</a> 
+            </li>
+        </ul>
+    </div>
+</div>
+    <div id="drawer-wishlist"
+        class="fixed top-0 right-0 z-[999] md:w-[40%] w-[85%] h-screen p-6 overflow-y-auto transition-transform translate-x-full bg-white dark:bg-gray-800 shadow-lg"
+        tabindex="-1" aria-labelledby="drawer-right-label">
+        <h5 id="drawer-right-label"
+            class="inline-flex items-center mb-4 text-lg font-bold text-gray-700 dark:text-gray-300">
+            <i class="fas fa-heart me-2 text-red-500"></i>          </h5>
+        <button type="button" data-drawer-hide="drawer-wishlist" aria-controls="drawer-wishlist"
+            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-content-center dark:hover:bg-gray-600 dark:hover:text-white">
             <i class="fas fa-times text-lg"></i>
         </button>
         <div id="wishlist-items-container" class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6"></div>
     </div>
+
+    
+
+
+<section id="search-results" style="display:none;">
+    <div class="container">
+        <div class="top_slide">
+            <h2>
+                <i class="fa-solid fa-magnifying-glass"></i>
+                Search Results
+            </h2>
+        </div>
+
+        <div class="search-products" id="search-products"></div>
+    </div>
+</section>
+
     <script src="./js/bootstrap.min.js"></script>
 
     <!-- <script src="./js/scrapt.js"></script> -->
