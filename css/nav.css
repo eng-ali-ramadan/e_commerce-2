@@ -299,6 +299,33 @@ body.dark .search-item:hover{
     transform: scale(.97);
 }
 
+
+/* إجبار نصوص Drawer والروابط على الظهور بشكل واضح */
+#drawer-navigation .drawer-link, 
+#drawer-navigation .dropdown-link {
+    color: #333333 !important; /* لون النص أسود داكن */
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* التنسيق عند تمرير الماوس فوق الروابط */
+#drawer-navigation .hover-bg:hover {
+    background-color: #f1f5f9;
+    border-radius: 6px;
+}
+
+/* دعم الوضع الليلي Dark Mode إذا كان لديك خيار التحويل */
+body.dark #drawer-navigation {
+    background-color: #1e293b !important;
+}
+body.dark #drawer-navigation .drawer-link,
+body.dark #drawer-navigation .dropdown-link,
+body.dark #drawer-navigation .drawer-text {
+    color: #ffffff !important;
+}
+
+
 @keyframes shine{
     0%{
         left: -40%;

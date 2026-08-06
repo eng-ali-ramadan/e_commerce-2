@@ -81,69 +81,76 @@
             </div>
         </nav>
 
-        <div class="nav2 position-sticky">
-            <div class="text-center mt-0">
-                <button class="nav-btn" type="button" data-drawer-target="drawer-navigation"
-                    data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
-                    <span>☰ Show Navigation</span>
-                </button>
-            </div>
-
-            <div class="theme-switch">
-                <div class="switch-ball"></div>
-                <i class="fa-solid fa-sun" id="light"></i>
-                <i class="fa-solid fa-moon" id="dark"></i>
-            </div>
-        </div>
-    </header>
-
-    <div id="drawer-navigation"
-        class="absolute top-0 left-0 z-50 w-64 h-screen p-4 overflow-y-auto transition-transform -translate-x-full drawer-box"
-        tabindex="-1">
-        <div class="border-bottom pb-3 d-flex align-items-center justify-content-between">
-            <div class="d-flex align-items-center gap-2">
-                <img src="./image/nav/lonn.png" class="h-8 w-8" alt="Logo" style="border-radius: 50%;" />
-                <span class="fw-bold fs-5 drawer-text">Categories</span>
-            </div>
-            <button type="button" data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation"
-                class="btn btn-sm btn-light">✖</button>
-        </div>
-
-        <div class="py-4">
-            <ul class="list-unstyled">
-                <li class="mb-2 hover-bg">
-                    <a href="login.html"
-                        class="drawer-link d-flex align-items-center gap-2 text-decoration-none p-2 rounded">
-                        Bars Dashboard
-                    </a>
-                </li>
-                <li class="mb-2">
-                    <button type="button"
-                        class="btn w-100 text-start d-flex align-items-center justify-content-between p-2 drawer-link"
-                        data-collapse-toggle="dropdown-example">
-                        📂 Categories ▼
-                    </button>
-                    <ul id="dropdown-example" class="hidden list-unstyled ms-3 mt-2">
-                        <li class="mb-2 hover-bg"><a href="./laptop.html" class="dropdown-link">💻 Laptops</a></li>
-                        <li class="mb-2 hover-bg"><a href="./mobile.html" class="dropdown-link">📱 Mobiles</a></li>
-                        <li class="mb-2 hover-bg"><a href="./acc.html" class="dropdown-link">🎧 Accessories</a></li>
-                    </ul>
-                </li>
-                <li class="mb-2 hover-bg"><a href="index.html"
-                        class="drawer-link d-flex align-items-center gap-2 text-decoration-none p-2 rounded">📥 Home</a>
-                </li>
-                <li class="mb-2 hover-bg"><a href="./html/contact.html"
-                        class="drawer-link d-flex align-items-center gap-2 text-decoration-none p-2 rounded">
-                        👥Contact</a> 
-                </li>
-                <li class="mb-2 hover-bg"><a href="./aboutNew/about/index.html"
-                        class="drawer-link d-flex align-items-center gap-2 text-decoration-none p-2 rounded">
-                        ℹ️About</a> 
-                </li>
-                
-            </ul>
-        </div>
+    <div class="nav2 position-sticky">
+    <div class="text-center mt-0">
+        <button class="nav-btn" type="button" data-drawer-target="drawer-navigation"
+            data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
+            <span>☰ Show Navigation</span>
+        </button>
     </div>
+
+    <div class="theme-switch">
+        <div class="switch-ball"></div>
+        <i class="fa-solid fa-sun" id="light"></i>
+        <i class="fa-solid fa-moon" id="dark"></i>
+    </div>
+</div>
+</header>
+
+<!-- تم تغيير absolute إلى position-fixed و fixed لضمان البقاء على الشاشة أثناء الـ Scroll -->
+<div id="drawer-navigation"
+    class="position-fixed fixed top-0 left-0 z-50 w-64 h-screen p-4 overflow-y-auto transition-transform -translate-x-full drawer-box"
+    tabindex="-1" style="top: 0; left: 0; height: 100vh; z-index: 9999;">
+    
+    <div class="border-bottom pb-3 d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center gap-2">
+            <img src="./image/nav/lonn.png" class="h-8 w-8" alt="Logo" style="border-radius: 50%;" />
+            <span class="fw-bold fs-5 drawer-text">Categories</span>
+        </div>
+        <button type="button" data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation"
+            class="btn btn-sm btn-light">✖</button>
+    </div>
+
+    <div class="py-4">
+        <ul class="list-unstyled">
+            <li class="mb-2 hover-bg">
+                <a href="./login.html"
+                    class="drawer-link d-flex align-items-center gap-2 text-decoration-none p-2 rounded">
+                    Bars Dashboard
+                </a>
+            </li>
+            <li class="mb-2">
+                <button type="button"
+                    class="btn w-100 text-start d-flex align-items-center justify-content-between p-2 drawer-link"
+                    data-bs-toggle="collapse" data-bs-target="#dropdown-example">
+                    <span>📂 Categories</span>
+                    <span>▼</span>
+                </button>
+                <div id="dropdown-example" class="collapse ms-3 mt-2">
+                    <ul class="list-unstyled">
+                        <li class="mb-2 hover-bg"><a href="./laptop.html" class="dropdown-link text-decoration-none d-block p-1">💻 Laptops</a></li>
+                        <li class="mb-2 hover-bg"><a href="./mobile.html" class="dropdown-link text-decoration-none d-block p-1">📱 Mobiles</a></li>
+                        <li class="mb-2 hover-bg"><a href="./acc.html" class="dropdown-link text-decoration-none d-block p-1">🎧 Accessories</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="mb-2 hover-bg">
+                <a href="/index.html"
+                    class="drawer-link d-flex align-items-center gap-2 text-decoration-none p-2 rounded">📥 Home</a>
+            </li>
+            <li class="mb-2 hover-bg">
+                <a href="./contact.html"
+                    class="drawer-link d-flex align-items-center gap-2 text-decoration-none p-2 rounded">
+                    👥 Contact</a> 
+            </li>
+            <li class="mb-2 hover-bg">
+                <a href="./aboutNew/about/index.html"
+                    class="drawer-link d-flex align-items-center gap-2 text-decoration-none p-2 rounded">
+                    ℹ️ About</a> 
+            </li>
+        </ul>
+    </div>
+</div>
     <div id="drawer-wishlist"
         class="fixed top-0 right-0 z-[999] md:w-[40%] w-[85%] h-screen p-6 overflow-y-auto transition-transform translate-x-full bg-white dark:bg-gray-800 shadow-lg"
         tabindex="-1" aria-labelledby="drawer-right-label">

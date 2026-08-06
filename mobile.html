@@ -80,7 +80,7 @@
         </div>
     </header>
 
-    <div id="drawer-navigation" class="absolute top-0 left-0 z-50 w-64 h-screen p-4 overflow-y-auto transition-transform -translate-x-full drawer-box" tabindex="-1">
+    <div id="drawer-navigation" class="position-fixed fixed top-0 left-0 w-64 h-screen p-4 overflow-y-auto transition-transform -translate-x-full drawer-box" tabindex="-1" style="top: 0; left: 0; height: 100vh; z-index: 9999;">
         <div class="border-bottom pb-3 d-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center gap-2">
                 <img src="./image/nav/lonn.png" class="h-8 w-8" alt="Logo" style="border-radius: 50%;"/>
@@ -97,10 +97,10 @@
                     </a>
                 </li>
                 <li class="mb-2">
-                    <button type="button" class="btn w-100 text-start d-flex align-items-center justify-content-between p-2 drawer-link" data-collapse-toggle="dropdown-example">
+                    <button type="button" class="btn w-100 text-start d-flex align-items-center justify-content-between p-2 drawer-link" data-bs-toggle="collapse" data-bs-target="#dropdown-example">
                         📂 Categories ▼
                     </button>
-                    <ul id="dropdown-example" class="hidden list-unstyled ms-3 mt-2">
+                    <div id="dropdown-example" class="collapse ms-3 mt-2">
                         <li class="mb-2 hover-bg"><a href="./laptop.html" class="dropdown-link">💻 Laptops</a></li>
                         <li class="mb-2 hover-bg"><a href="./mobile.html" class="dropdown-link">📱 Mobiles</a></li>
                         <li class="mb-2 hover-bg"><a href="./acc.html" class="dropdown-link">🎧 Accessories</a></li>
