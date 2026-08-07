@@ -312,6 +312,6 @@ body {
 }
 
 @media (max-width: 600px) {
-    .banners .box { width: 100%; }
+    .banners .box { width: 45%; }
     .product .name_product { font-size: 13px; }
 }
