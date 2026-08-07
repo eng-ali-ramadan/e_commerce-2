@@ -536,4 +536,12 @@ body.dark #drawer-wishlist .hover-bg:hover {
         flex-direction: column;
         gap: 15px;
     }
+
+
+
+.logo img{
+    display:none;
+    
+}
+
 }
